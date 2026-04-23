@@ -52,7 +52,7 @@ def transform_date(df: pd.DataFrame) -> pd.DataFrame:
     print("📅 Transforming date dimension...")
 
     temp = df[['Order Date']].copy()
-    temp['Order Date'] = pd.to_datetime(temp['Order Date'])
+    temp['Order Date'] = pd.to_datetime(temp['Order Date'], dayfirst=True)
 
     dim_date = temp.drop_duplicates()
 
@@ -76,7 +76,7 @@ def transform_sales(df: pd.DataFrame) -> pd.DataFrame:
 
     sales = df[['Row ID', 'Customer ID', 'Product ID', 'Order Date', 'Sales']].copy()
 
-    sales['Order Date'] = pd.to_datetime(sales['Order Date'])
+    sales['Order Date'] = pd.to_datetime(sales['Order Date'], dayfirst=True)
 
     sales = sales.rename(columns={
         'Row ID': 'sale_id',
