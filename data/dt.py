@@ -20,7 +20,7 @@ customers = customers.rename(columns={
     'Region': 'region'
 })
 
-customers.to_csv('data/raw/customers.csv', index=False)
+customers.to_csv('data/extracted/customers.csv', index=False)
 print(f"✅ Created customers.csv with {len(customers)} records.")
 
 # ---------------------------------------------------------
@@ -37,7 +37,7 @@ products = products.rename(columns={
     'Sub-Category': 'sub_category'
 })
 
-products.to_csv('data/raw/products.csv', index=False)
+products.to_csv('data/extracted/products.csv', index=False)
 print(f"✅ Created products.csv with {len(products)} records.")
 
 # ---------------------------------------------------------
@@ -62,6 +62,6 @@ sales = sales.rename(columns={
 # so your SQL aggregations like SUM(quantity) don't break.
 sales['quantity'] = 1 
 
-sales.to_csv('data/raw/sales.csv', index=False)
+sales.to_csv('data/extracted/sales.csv', index=False)
 print(f"✅ Created sales.csv with {len(sales)} records.")
 print("🎉 Data splitting complete!")
